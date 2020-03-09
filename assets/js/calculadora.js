@@ -19,7 +19,10 @@ function onClearClicked(){
 }
 
 function onEqualsClicked(){
-    n2=parseInt(result.innerHTML)
+    n2=parseInt(result.innerHTML);
+    var rad = n2*Math.PI/180;
+    var fatorial = 0;
+    var incr = 0;
     if(operacao=="/"){
         if(n2==0){
             alert("ERRO! Impossível dividir por 0! \nReiniciar a calculadora!");
@@ -36,6 +39,23 @@ function onEqualsClicked(){
     }
     if(operacao=="*"){
         result.innerHTML = n1*n2;
+    }
+    if(operacao=="sen"){
+        result.innerHTML = Math.sin(rad);
+    }
+    if(operacao=="cos"){
+        result.innerHTML = Math.cos(rad);
+    }
+    if(operacao=="tan"){
+        result.innerHTML = Math.tan(rad);
+    }
+    if(operacao=="!"){
+        fatorial = n2;
+        for(var i=1; i<n2; i++){
+            fatorial+=(fatorial*i)
+            console.log(fatorial)
+        }
+        result.innerHTML = fatorial;
     }
 }
 
@@ -61,6 +81,26 @@ function onMultiplyCliked(){
     n1 = parseInt(result.innerHTML);
     operacao = "*";
     result.innerHTML = "0";
+}
+
+function seno(){
+    operacao = "sen";
+    onEqualsClicked()
+}
+
+function cosseno(){
+    operacao = "cos";
+    onEqualsClicked()
+}
+
+function tangente(){
+    operacao = "tan";
+    onEqualsClicked()
+}
+
+function fatorial(){
+    operacao = "!";
+    onEqualsClicked()
 }
 
 
